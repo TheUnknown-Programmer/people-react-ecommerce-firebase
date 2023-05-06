@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 //Pages
-import { Home, Contact, Login, Register, Reset, Admin } from './pages'
+import { Home, Contact, Login, Register, Reset, Admin, } from './pages'
 // Components
 import { Header, Footer } from './components'
 import { ToastContainer } from 'react-toastify';
 import AdminOnlyRoute from './components/adminOnlyRoute/AdminOnlyRoute';
 import ProductDetails from './components/product/productDetails/ProductDetails';
-
+import Cart from './pages/cart/Cart';
 
 
 
@@ -30,6 +30,7 @@ function App() {
                   <Admin />
                 </AdminOnlyRoute>  } />
                 <Route path='/product-details/:id' element={ <ProductDetails />} />
+                <Route path='/cart' element={<Cart />} />
           </Routes>
         <Footer />
       </BrowserRouter>

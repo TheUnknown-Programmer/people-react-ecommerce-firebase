@@ -17,10 +17,25 @@ const Pagination = ({currentPage, setCurrentPage, productsPerPage, totalProducts
 
   //Go to next page
   const paginateNext = () => {
-
+    setCurrentPage(currentPage + 1)
+    // show next set of page numbers
+    if (currentPage + 1 > maxPageNumberLimit) {
+      setmaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+      setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+    }
   }
 
   //Go to prev page
+  const paginatePrev = () => {
+    setCurrentPage(currentPage - 1)
+    // Show prev set of pageNumbers
+    if ((currentPage - 1) % pageNumberLimit == 0) {
+      setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+      setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+    }
+  }
+
+
 
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++){
     pageNumbers.push(i)
@@ -28,7 +43,7 @@ const Pagination = ({currentPage, setCurrentPage, productsPerPage, totalProducts
 
   return (
     <ul className={styles.pagination}>
-      <li>Prev</li>
+      <li onClick={paginatePrev} className={currentPage === pageNumbers[0] ? `${styles.hidden}` : null}>Prev</li>
       
       {pageNumbers.map((number) => {
         if(number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
@@ -39,10 +54,9 @@ const Pagination = ({currentPage, setCurrentPage, productsPerPage, totalProducts
           )
         }
 
-
       })}
       
-      <li>Next</li>
+      <li onClick={paginateNext} className={currentPage == pageNumbers[pageNumbers.length -1] ? `${styles.hidden}` : null}>Next</li>
       <p>
         <b className={styles.page}>
           {`page ${currentPage}`}
