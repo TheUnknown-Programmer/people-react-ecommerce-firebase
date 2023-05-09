@@ -7,10 +7,11 @@ import { auth } from '../../firebase/config';
 import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { onAuthStateChanged } from "firebase/auth";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { SET_ACTIVE_USER, REMOVE_ACTIVE_USER } from '../../redux/slice/authSlice';
 import ShowOnLogin, { ShowOnLogout } from '../hiddenLink/hiddenLink';
 import AdminOnlyRoute, { AdminOnlyLink } from '../adminOnlyRoute/AdminOnlyRoute';
+import { CALCULATE_TOTAL_QUANTITY, selectCartTotalQuantity } from '../../redux/slice/cartSlice';
 
 
 
@@ -25,14 +26,7 @@ const logo = (
 </div>
 )
 
-const cart = (
-  <span className={styles.cart}>
-  <Link to='/cart'>
-    <FaShoppingCart size={20}/>
-    <p>0</p>
-  </Link>
-</span>
-)
+
 
 const activeLink = ({isActive}) => 
 (isActive ? `${styles.active}` : '')
@@ -41,10 +35,27 @@ const activeLink = ({isActive}) =>
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
   const [displayName, setDisplayName] = useState('')
+  const [scrollPage, setScrollPage] = useState(false)
+  const cartTotalQuantity = useSelector(selectCartTotalQuantity)
+
+  useEffect(() => {
+    dispatch(CALCULATE_TOTAL_QUANTITY())
+  }, [])
+
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
+  const fixNavbar = () => {
+    if (window.scrollY >  50) {
+      setScrollPage(true)
+    } else {
+      setScrollPage(false)
+    }    
+  }
+
+  window.addEventListener('scroll', fixNavbar)
+ 
   // Currently signed in user
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -90,10 +101,18 @@ const Header = () => {
     });
   }
   
+  const cart = (
+    <span className={styles.cart}>
+    <Link to='/cart'>
+      <FaShoppingCart size={20}/>
+      <p>{cartTotalQuantity}</p>
+    </Link>
+  </span>
+  )
 
 
   return (
-    <header>
+    <header className={scrollPage ? `${styles.fixed}` : null}>
       <div className={styles.header}>
         {logo}
         <nav className={showMenu ? `${styles['show-nav']}` : `${styles['hide-nav']}`}>
