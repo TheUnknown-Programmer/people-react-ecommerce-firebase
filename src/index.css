@@ -2,7 +2,7 @@
 
 :root {
   --font-family: "Poppins", sans-serif;
-  --dark-blue: #0a1930;
+  --dark-blue: black;
   --light-blue: #1f93ff;
 
   --color-white: #fff;
@@ -24,6 +24,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  
 }
 
 
@@ -309,7 +310,7 @@ p {
 }
 .--btn-danger {
   color: #fff;
-  background: orangered;
+  background: black;
 }
 
 .--btn-success {

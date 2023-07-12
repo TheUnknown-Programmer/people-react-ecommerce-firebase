@@ -32,15 +32,20 @@
 @media screen and (max-width: 700px) {
   .filter {
     .category button {
+      display: block;
       width: 100%;
+      margin-bottom: 5px;
+      /* Add any additional styling you need for the buttons */
     }
     .brand {
       select {
         width: 100%;
+        /* Add any additional styling you need for the select element */
       }
     }
   }
 }
+
 
 .active {
   position: relative;

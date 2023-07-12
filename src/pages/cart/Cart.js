@@ -57,7 +57,7 @@ const Cart = () => {
             <p>Your cart is currently empty</p> 
             <br />
             <div>
-              <Link to='/#products'>&larr; Continue Shopping</Link>
+              <Link to='/#products' className={styles.continueShopping}>&larr; Continue Shopping</Link>
             </div>
           </>
         ) : (

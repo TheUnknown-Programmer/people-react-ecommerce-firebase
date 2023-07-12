@@ -1,7 +1,10 @@
 .table {
   padding: 5px;
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
+  height: 1100px;
+
+ 
 
   table {
     border-collapse: collapse;
@@ -68,5 +71,11 @@
   }
   & > * {
     margin-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 2560px) {
+  .table {
+    height: 1300px;
   }
 }

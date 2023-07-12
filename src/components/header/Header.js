@@ -118,10 +118,10 @@ const Header = () => {
         <nav className={showMenu ? `${styles['show-nav']}` : `${styles['hide-nav']}`}>
 
           <div className={showMenu ? `${styles['nav-wrapper']} ${styles['show-nav-wrapper']}` : `${styles['nav-wrapper']}`} 
-          onClick={hideMenu}
+          onClick={hideMenu} 
           ></div>
 
-            <ul onClick={hideMenu}>
+            <ul onClick={hideMenu} >
               <li className={styles['logo-mobile']}>
                 {logo}
                 <FaTimes size={22} color='#fff' onClick={hideMenu}/>
@@ -136,7 +136,7 @@ const Header = () => {
                 </AdminOnlyLink>
               </li>
               <li> 
-                <NavLink to='/' className={activeLink}>
+                <NavLink to='/' className={activeLink} >
                   Home
                 </NavLink>
               </li>
