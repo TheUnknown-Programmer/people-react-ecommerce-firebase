@@ -1,7 +1,7 @@
 export const sliderData = [
   {
-    image: "https://i.ibb.co/CBGRLhG/bg-4.jpg",
-    heading: "Shoes Villa",
+    image: "https://images.pexels.com/photos/19090/pexels-photo.jpg",
+    heading: "Shoes",
     desc: "Up to 30% off on all onsale proucts.",
   },
   {
@@ -16,7 +16,7 @@ export const sliderData = [
   },
   {
     image: "https://i.ibb.co/H2FRmtV/bg-3.jpg",
-    heading: "Awesome Gadgets",
+    heading: "Tech",
     desc: "Up to 30% off on all onsale proucts.",
   },
 ];

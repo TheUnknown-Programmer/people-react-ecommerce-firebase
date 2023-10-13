@@ -30,6 +30,13 @@ const Login = () => {
     navigate('/')
   };
 
+  const handleGuestCheckout = () => {
+    // Implement guest checkout logic here
+    // For example, you can navigate the user to the checkout page for guest users
+    navigate('/checkout-details');
+  };
+
+
 
   // Login with google
   const provider = new GoogleAuthProvider();
@@ -85,6 +92,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               />
               <button type='submit' className='--btn --btn-primary --btn-block'>Login</button>
+              
               <div className={styles.links}>
                 <Link to='/reset'>Reset Password</Link>
               </div>
@@ -94,6 +102,9 @@ const Login = () => {
               <FaGoogle color='#fff'/>
               Login With Google
             </button>
+            <span style={{margin: '10px'}}>
+                <button type='submit' className='--btn --btn-orange --btn-block' onClick={handleGuestCheckout}>Guest Checkout</button>
+              </span>
             <span className={styles.register}>
               <p>Don't have an account?</p>
               <Link to='/register'>Register</Link>

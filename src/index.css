@@ -303,6 +303,12 @@ p {
   color: #fff;
   background: #007bff;
 }
+
+.--btn-orange {
+  color: #fff;
+  background: #ff4500;
+}
+
 .--btn-secondary {
   color: #fff;
   border: 1px solid #fff;
