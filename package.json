@@ -38,9 +38,13 @@
     "start:frontend": "react-scripts start",
     "start:backend": "nodemon server.js",
     "start": "node server",
-    "build": "react-scripts build --no-ci",
+    "build": "npm install --legacy-peer-deps && react-scripts build --no-ci",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
   },
   "eslintConfig": {
     "extends": [
